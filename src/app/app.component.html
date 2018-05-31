@@ -1,10 +1,2 @@
-<app-child [name]="name"></app-child>
-<p #userName>#userName  - {{name}}</p>
-<p>userName.textContent - {{userName.textContent}}</p>
-<input type="text" [(ngModel)]="name" />
-
-<p>-----------</p>
-<p>Счетчик</p>
-<app-counter #counter></app-counter>
-<button (click)="counter.increment()">+</button>
-<button (click)="counter.decrement()">-</button>
+<div><a [routerLink]="['/exchange']">Exchange</a></div>
+<div><router-outlet></router-outlet></div>

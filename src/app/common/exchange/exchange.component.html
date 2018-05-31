@@ -1,0 +1,10 @@
+Курс валют
+
+{{ myDate | date:"dd.MM.yyyy" }}
+{{pi | number:'2.1-2'}}
+<p>
+  {{ 5 | factorial:5 }}
+</p>
+<p *ngFor='let item of currencies'>
+  {{item.txt | number}} : {{item.rate.toString() | slice:0:4}} <span>{{item.exchangedate}}</span>
+</p>

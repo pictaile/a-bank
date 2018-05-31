@@ -7,6 +7,8 @@ import { Component,
         AfterContentChecked,
         AfterViewChecked,
         AfterViewInit} from '@angular/core';
+import {AuthComponent} from '../auth/auth.component';
+import {CounterService} from '../../service/counter.service';
 
 
 @Component({
@@ -23,6 +25,12 @@ export class ChildComponent implements OnInit,
         AfterViewInit  {
     @Input() name: string;
     count = 1;
+    childClass = 'child';
+
+    constructor(private authComponent: AuthComponent, private counterService: CounterService) {
+      console.log(`ChildComponent ${authComponent.name}`);
+      this.count = counterService.getCounter();
+    }
 
     ngOnInit() {
       this.log(`ngOnInit`);
@@ -54,6 +62,5 @@ export class ChildComponent implements OnInit,
 
     private log(msg: string) {
         console.log(`${this.count}. ${msg}`);
-        this.count++;
     }
 }

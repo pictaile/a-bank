@@ -1,3 +1,5 @@
-<p>
-  {{counter}}
-</p>
+<div appBold size="800" (_onSize)="onLeave($event)" style="width: 200px;height:40px; background: red">
+  <div (click)="increment()">+</div>
+    {{counter}}
+  <div (click)="decrement()">-</div>
+</div>
