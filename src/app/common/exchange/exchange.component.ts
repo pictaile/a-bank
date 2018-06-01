@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ExchangeService} from '../services/exchange.service';
+import { map, filter, scan } from 'rxjs/operators';
 
 @Component({
   selector: 'app-exchange',
@@ -8,16 +9,13 @@ import {ExchangeService} from '../services/exchange.service';
 })
 export class ExchangeComponent implements OnInit {
   public currencies: any[] = [];
-  myDate = new Date(1961, 3, 12);
-
-  pi: number = 3.1415;
-
 
   constructor(private exchangeService: ExchangeService) { }
 
   ngOnInit() {
-    this.exchangeService.getCurrencies().subscribe((items: any[]) => {
-      this.currencies = items;
+    this.exchangeService.getCurrencies()
+      .subscribe((items: any[]) => {
+        this.currencies = items.filter(item => item.cc === 'EUR' || item.cc === 'USD');
     });
   }
 
