@@ -7,7 +7,6 @@ import { Component,
         AfterContentChecked,
         AfterViewChecked,
         AfterViewInit} from '@angular/core';
-import {AuthComponent} from '../auth/auth.component';
 import {CounterService} from '../../service/counter.service';
 
 
@@ -27,9 +26,7 @@ export class ChildComponent implements OnInit,
     count = 1;
     childClass = 'child';
 
-    constructor(private authComponent: AuthComponent, private counterService: CounterService) {
-      console.log(`ChildComponent ${authComponent.name}`);
-      this.count = counterService.getCounter();
+    constructor( private counterService: CounterService) {
     }
 
     ngOnInit() {
