@@ -23,12 +23,12 @@ export class EntryComponent  {
   public myForm: FormGroup;
   constructor(private formBuilder: FormBuilder) {
     this.myForm = formBuilder.group({
-      "userName": ["Tom", [Validators.required]],
+      'userName': ['Tom', [Validators.required]],
 
-      "userEmail": ["", [ Validators.required, Validators.pattern("[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}")]],
+      'userEmail': ['', [ Validators.required, Validators.pattern("[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}")]],
 
-      "phones": formBuilder.array([
-        ["+7", Validators.required]
+      'phones': formBuilder.array([
+        ['+3', Validators.required]
       ])
     });
   }
